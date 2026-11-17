@@ -47,6 +47,11 @@
       border-radius: 2px;
     }
 
+    button:focus-visible {
+      outline: 3px solid var(--sage);
+      outline-offset: 4px;
+    }
+
     .skip-link {
       position: absolute;
       top: 1rem;
@@ -192,6 +197,30 @@
 
     .button-secondary:hover {
       background: var(--stone);
+    }
+
+    .copy-button {
+      display: inline-flex;
+      min-height: 40px;
+      align-items: center;
+      gap: .45rem;
+      padding: .5rem .75rem;
+      border: 1px solid var(--stone);
+      border-radius: 4px;
+      background: transparent;
+      color: var(--forest);
+      font: inherit;
+      font-size: .9rem;
+      cursor: pointer;
+    }
+
+    .copy-button:hover {
+      background: var(--stone);
+    }
+
+    .copy-button svg {
+      width: 1rem;
+      height: 1rem;
     }
 
     .section {
@@ -463,7 +492,16 @@
     <section class="section contact container" id="contact" aria-labelledby="contact-title">
       <h2 class="section-heading" id="contact-title">Have a problem worth solving?</h2>
       <p>I'd be glad to hear what you're working on and see whether I can help.</p>
-      <a class="button" href="mailto:joel@joelsalisbury.com">joel@joelsalisbury.com</a>
+      <div class="actions">
+        <a class="button" href="mailto:joel@joelsalisbury.com">joel@joelsalisbury.com</a>
+        <button class="copy-button" type="button" data-copy="joel@joelsalisbury.com" aria-label="Copy email address">
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M5.5 5.5V3.25A1.25 1.25 0 0 1 6.75 2h6A1.25 1.25 0 0 1 14 3.25v6a1.25 1.25 0 0 1-1.25 1.25H10.5M3.25 5.5h6A1.25 1.25 0 0 1 10.5 6.75v6A1.25 1.25 0 0 1 9.25 14h-6A1.25 1.25 0 0 1 2 12.75v-6A1.25 1.25 0 0 1 3.25 5.5Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Copy
+        </button>
+        <span id="copy-status" role="status" aria-live="polite"></span>
+      </div>
     </section>
   </main>
 
@@ -471,5 +509,20 @@
     <a class="wordmark footer-wordmark" href="#top">something useful.</a>
     <p>Independent software &amp; technology.</p>
   </footer>
+  <script>
+    const copyButton = document.querySelector("[data-copy]");
+    const copyStatus = document.querySelector("#copy-status");
+
+    if (copyButton && copyStatus) {
+      copyButton.addEventListener("click", async () => {
+        try {
+          await navigator.clipboard.writeText(copyButton.dataset.copy);
+          copyStatus.textContent = "Email copied.";
+        } catch {
+          copyStatus.textContent = "Couldn't copy. Please copy the email address manually.";
+        }
+      });
+    }
+  </script>
 </body>
 </html>
