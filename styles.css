@@ -308,6 +308,80 @@ h1 {
   max-width: 720px;
 }
 
+.conservation-hero-copy {
+  max-width: 680px;
+  margin-left: auto;
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  line-height: 1.55;
+}
+
+.conservation-hero-copy p:last-child {
+  margin-bottom: 0;
+}
+
+.editorial-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, .85fr);
+  gap: 2rem clamp(2rem, 6vw, 6rem);
+}
+
+.editorial-intro p {
+  max-width: 560px;
+}
+
+.subject-areas {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 2rem;
+  margin-top: 2rem;
+}
+
+.subject-areas > div {
+  padding-block: 1.5rem;
+  border-top: 1px solid var(--stone);
+}
+
+.subject-areas h3,
+.possibilities-list h3 {
+  margin-bottom: .6rem;
+  font-size: 1.35rem;
+  letter-spacing: -.025em;
+}
+
+.subject-areas p,
+.possibilities-list p {
+  margin-bottom: 0;
+}
+
+.possibilities-list {
+  margin: 2rem 0 0;
+  padding: 0;
+  list-style: none;
+  border-bottom: 1px solid var(--stone);
+}
+
+.possibilities-list li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, .85fr);
+  gap: 1rem clamp(2rem, 6vw, 6rem);
+  padding-block: 1.5rem;
+  border-top: 1px solid var(--stone);
+}
+
+.possibilities-list h3 span {
+  color: var(--forest);
+  font: 500 .85rem "IBM Plex Mono", monospace;
+  letter-spacing: 0;
+}
+
+.approach {
+  background: var(--stone);
+}
+
+.approach .editorial-intro p:last-child {
+  margin-bottom: 0;
+}
+
 .contact {
   padding-bottom: clamp(4rem, 8vw, 6rem);
 }
@@ -367,6 +441,24 @@ h1 {
   .project {
     grid-template-columns: 1fr;
     gap: .5rem;
+  }
+
+  .editorial-intro,
+  .subject-areas,
+  .possibilities-list li {
+    grid-template-columns: 1fr;
+  }
+
+  .editorial-intro {
+    gap: 0;
+  }
+
+  .editorial-intro .section-heading {
+    margin-bottom: 1rem;
+  }
+
+  .possibilities-list li {
+    gap: .4rem;
   }
 
   .site-footer {
