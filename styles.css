@@ -4,6 +4,7 @@
   --sage: #6B8F7A;
   --cream: #F4F1E7;
   --stone: #D7DED2;
+  --surface: #FAF9F4;
   --ink: #2F3B34;
   --page-width: 1080px;
 }
@@ -329,49 +330,72 @@ h1 {
   max-width: 560px;
 }
 
+.work-intro p {
+  max-width: 70ch;
+}
+
+.work-intro {
+  grid-template-columns: minmax(0, .45fr) minmax(0, 1fr);
+}
+
 .subject-areas {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0 2rem;
+  gap: 1.25rem;
   margin-top: 2rem;
 }
 
-.subject-areas > div {
-  padding-block: 1.5rem;
-  border-top: 1px solid var(--stone);
+.subject-area {
+  padding: 1.5rem;
+  border: 1px solid var(--stone);
+  border-radius: 4px;
+  background: var(--surface);
 }
 
-.subject-areas h3,
-.possibilities-list h3 {
+.subject-area-number {
+  display: block;
+  margin-bottom: .75rem;
+  color: var(--sage);
+  font: 500 .75rem "IBM Plex Mono", monospace;
+  letter-spacing: .08em;
+}
+
+.subject-area h3,
+.possibility h3 {
   margin-bottom: .6rem;
   font-size: 1.35rem;
   letter-spacing: -.025em;
 }
 
-.subject-areas p,
-.possibilities-list p {
+.subject-area p,
+.possibility p {
   margin-bottom: 0;
 }
 
-.possibilities-list {
+.possibilities-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 2rem;
   margin: 2rem 0 0;
-  padding: 0;
-  list-style: none;
-  border-bottom: 1px solid var(--stone);
 }
 
-.possibilities-list li {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, .85fr);
-  gap: 1rem clamp(2rem, 6vw, 6rem);
+.possibility {
   padding-block: 1.5rem;
   border-top: 1px solid var(--stone);
 }
 
-.possibilities-list h3 span {
-  color: var(--forest);
-  font: 500 .85rem "IBM Plex Mono", monospace;
-  letter-spacing: 0;
+.possibility-number {
+  display: block;
+  margin-bottom: .65rem;
+  color: var(--sage);
+  font: 500 .75rem "IBM Plex Mono", monospace;
+  letter-spacing: .08em;
+}
+
+.possibility h3 {
+  margin-bottom: .6rem;
+  font-size: 1.35rem;
+  letter-spacing: -.025em;
 }
 
 .approach {
@@ -412,6 +436,17 @@ h1 {
   font-size: .9rem;
 }
 
+@media (max-width: 1000px) {
+  .work-intro {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .work-intro .section-heading {
+    margin-bottom: 1rem;
+  }
+}
+
 @media (max-width: 680px) {
   body {
     font-size: 16px;
@@ -445,7 +480,7 @@ h1 {
 
   .editorial-intro,
   .subject-areas,
-  .possibilities-list li {
+  .possibilities-grid {
     grid-template-columns: 1fr;
   }
 
@@ -455,10 +490,6 @@ h1 {
 
   .editorial-intro .section-heading {
     margin-bottom: 1rem;
-  }
-
-  .possibilities-list li {
-    gap: .4rem;
   }
 
   .site-footer {
