@@ -87,6 +87,11 @@ button:focus-visible {
   gap: .75rem 1.75rem;
 }
 
+.menu-toggle,
+.site-nav[hidden] {
+  display: none;
+}
+
 .site-nav a,
 .text-link {
   color: var(--forest);
@@ -461,6 +466,46 @@ h1 {
   }
 }
 
+@media (max-width: 767px) {
+  .site-header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: .75rem 1rem;
+    padding-block: .75rem;
+  }
+
+  .menu-toggle:not([hidden]) {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+    padding: .5rem .25rem;
+    border: 0;
+    background: transparent;
+    color: var(--forest);
+    font: inherit;
+    font-size: .95rem;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  .site-nav {
+    grid-column: 1 / -1;
+    flex-direction: column;
+    gap: 0;
+    padding-top: .5rem;
+    border-top: 1px solid var(--stone);
+  }
+
+  .site-nav a {
+    display: flex;
+    min-height: 44px;
+    align-items: center;
+    padding-block: .5rem;
+    white-space: nowrap;
+  }
+}
+
 @media (max-width: 680px) {
   body {
     font-size: 16px;
@@ -468,18 +513,6 @@ h1 {
 
   .container {
     width: min(100% - 36px, var(--page-width));
-  }
-
-  .site-header {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 1.1rem;
-    padding-block: 1.2rem;
-  }
-
-  .site-nav {
-    justify-content: flex-start;
-    gap: .55rem 1.25rem;
   }
 
   .capabilities {
@@ -636,7 +669,44 @@ h1 {
 }
 
 @media (max-width: 680px) {
+  .hero,
+  .home-page .hero {
+    padding-block: 2rem 3rem;
+  }
+
+  .home-page h1 {
+    font-size: clamp(2.115rem, 5.355vw, 4.2075rem);
+    line-height: 1.1;
+  }
+
+  .hero .actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: .75rem;
+  }
+
+  .hero .actions .button {
+    width: 100%;
+  }
+
+  .section {
+    padding-block: 3rem;
+  }
+
+  .section-heading {
+    margin-bottom: 1.5rem;
+  }
+
+  .subject-area,
+  .home-page .project {
+    padding: 1.25rem;
+  }
+
   .home-page .work-list {
     grid-template-columns: 1fr;
+  }
+
+  .home-page .project-action {
+    min-height: 0;
   }
 }

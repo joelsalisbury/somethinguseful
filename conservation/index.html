@@ -21,7 +21,8 @@
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header container">
     <a class="wordmark" href="/#top" aria-label="something useful. home">something useful.</a>
-    <nav class="site-nav" aria-label="Main navigation">
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-navigation" hidden>Menu</button>
+    <nav class="site-nav" id="main-navigation" aria-label="Main navigation">
       <a href="/#what-i-do">What I do</a>
       <a href="/#selected-work">Selected work</a>
       <a href="/conservation" aria-current="page">Conservation</a>
@@ -144,6 +145,7 @@
     <a class="wordmark footer-wordmark" href="/#top">something useful.</a>
     <p>Independent software &amp; technology.</p>
   </footer>
+  <script src="/navigation.js"></script>
   <script src="/contact.js"></script>
 </body>
 </html>
